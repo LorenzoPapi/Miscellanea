@@ -1,4 +1,4 @@
-package com.lorenzopapi.github.music;
+package com.github.lorenzopapi.music;
 
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;

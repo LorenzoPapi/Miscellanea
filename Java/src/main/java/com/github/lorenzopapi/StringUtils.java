@@ -1,4 +1,4 @@
-package com.lorenzopapi.github;
+package com.github.lorenzopapi;
 
 import java.util.Random;
 

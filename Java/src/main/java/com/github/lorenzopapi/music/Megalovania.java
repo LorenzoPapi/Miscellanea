@@ -1,6 +1,6 @@
-package com.lorenzopapi.github.music;
+package com.github.lorenzopapi.music;
 
-import static com.lorenzopapi.github.music.BasicInstrument.InstrumentType.*;
+import static com.github.lorenzopapi.music.BasicInstrument.InstrumentType.*;
 
 public class Megalovania extends BasicInstrument {
 

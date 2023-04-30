@@ -1,4 +1,4 @@
-package com.lorenzopapi.github.amongsus;
+package com.github.lorenzopapi.amongsus;
 
 import java.io.*;
 import java.nio.ByteBuffer;

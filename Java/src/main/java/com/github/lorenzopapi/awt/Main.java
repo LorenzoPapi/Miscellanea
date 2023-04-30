@@ -1,4 +1,4 @@
-package com.lorenzopapi.github.awt;
+package com.github.lorenzopapi.awt;
 
 import javax.swing.*;
 import java.awt.*;
