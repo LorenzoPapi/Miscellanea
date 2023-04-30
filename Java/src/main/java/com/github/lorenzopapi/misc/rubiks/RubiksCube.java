@@ -142,9 +142,9 @@ enum Move {
 		Utils.rotateFace(CUBE, reverse ? 5 : 0, CCW);
 	});
 
-	String name;
-	String reverse;
-	MoveFunction moveInterface;
+	final String name;
+	final String reverse;
+	final MoveFunction moveInterface;
 
 	Move(String name, String reverse, MoveFunction moveMethod) {
 		this.name = name;
@@ -161,8 +161,8 @@ enum CubeColor {
 	BLUE("blue", 0x0000FF),
 	YELLOW("yellow", 0xFFFF00);
 
-	String name;
-	int rgb;
+	final String name;
+	final int rgb;
 
 	CubeColor(String name, int rgb) {
 		this.name = name;

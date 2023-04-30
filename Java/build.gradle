@@ -49,12 +49,12 @@ dependencies {
     //compile group: 'org.jbox2d', name: 'jbox2d-testbed-jogl', version: '1.0.1'
     //compile group: 'org.jbox2d', name: 'jbox2d-library', version: '2.2.1.1'
 
-    compile files("libs\\jnativehook-2.1.0.jar")
+    //compile files("libs\\jnativehook-2.1.0.jar")
     //compile files("libs\\glsl_game_engine-1.0-SNAPSHOT.jar")
-    compile files("libs\\jna-platform-5.8.0.jar")
+    //compile files("libs\\jna-platform-5.8.0.jar")
     implementation 'net.dv8tion:JDA:4.2.1_255'
-    compile 'com.github.sapher:youtubedl-java:1.+'
-    compile 'com.github.kokorin.jaffree:jaffree:2022.06.03'
+    implementation 'com.github.sapher:youtubedl-java:1.+'
+    implementation 'com.github.kokorin.jaffree:jaffree:2022.06.03'
     implementation group: 'ws.schild', name: 'jave-all-deps', version: '3.0.1'
     implementation 'com.github.sealedtx:java-youtube-downloader:cc7ae9c675'
 }

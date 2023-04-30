@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MiscellanousThings.iml" filepath="$PROJECT_DIR$/.idea/modules/MiscellanousThings.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MiscellanousThings.main.iml" filepath="$PROJECT_DIR$/.idea/modules/MiscellanousThings.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/src/MiscellanousThings.src.iml" filepath="$PROJECT_DIR$/.idea/modules/src/MiscellanousThings.src.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MiscellanousThings.test.iml" filepath="$PROJECT_DIR$/.idea/modules/MiscellanousThings.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Miscellanea.iml" filepath="$PROJECT_DIR$/.idea/modules/Miscellanea.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Miscellanea.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Miscellanea.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/src/Miscellanea.src.iml" filepath="$PROJECT_DIR$/.idea/modules/src/Miscellanea.src.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Miscellanea.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Miscellanea.test.iml" />
     </modules>
   </component>
 </project>

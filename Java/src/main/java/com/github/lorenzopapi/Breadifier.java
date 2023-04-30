@@ -94,11 +94,7 @@ public class Breadifier {
 			} catch (Throwable ignored) {
 			}
 		}
-<<<<<<< Updated upstream
 		String result = out.toString();
-=======
-		String result = new String(out.toByteArray());
->>>>>>> Stashed changes
 		out.close();
 		return result;
 	}

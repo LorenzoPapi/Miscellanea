@@ -18,11 +18,7 @@ public class Decompressor {
 			stream.write((byte) (Integer.parseInt(str.substring(0, 3)) - 128));
 			str = str.substring(3);
 		}
-<<<<<<< Updated upstream
 		return stream.toString();
-=======
-		return new String(stream.toByteArray());
->>>>>>> Stashed changes
 	}
 
 	public static String stringToNumbers(String str) {
