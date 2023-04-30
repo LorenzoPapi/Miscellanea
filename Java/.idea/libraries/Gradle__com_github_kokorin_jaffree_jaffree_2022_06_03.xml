@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.kokorin.jaffree:jaffree:2022.06.03" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.github.kokorin.jaffree" artifactId="jaffree" version="2022.06.03" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.kokorin.jaffree/jaffree/2022.06.03/5cc571c22642cd5621007bbbb1302838f6e002bd/jaffree-2022.06.03.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.kokorin.jaffree/jaffree/2022.06.03/7f880169154ea854d5add0c6a947fff5e481321b/jaffree-2022.06.03-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

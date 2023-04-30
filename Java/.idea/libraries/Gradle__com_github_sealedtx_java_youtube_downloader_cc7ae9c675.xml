@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.sealedtx:java-youtube-downloader:cc7ae9c675" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.github.sealedtx" artifactId="java-youtube-downloader" version="cc7ae9c675" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.sealedtx/java-youtube-downloader/cc7ae9c675/f8ea5b3ad03964ed44548340be7c97abdb309fe/java-youtube-downloader-cc7ae9c675.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.sealedtx/java-youtube-downloader/cc7ae9c675/131fd41161250faced7964c3b1f44e321a1b519b/java-youtube-downloader-cc7ae9c675-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

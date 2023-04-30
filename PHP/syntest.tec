@@ -1,0 +1,14 @@
+[
+    \h1                 delirio
+    \h2 CaiusIulius #Interpretato come \h 2 CaiusIulius
+    \h3 [april 2023]
+    \sect Intro [
+        \b BOLD
+        \i ITALIC
+        \b\i [BOLD AND ITALIC] # Vorrei poter scrivere \b\i [BOLD AND ITALIC]
+        \p [justified] [This document serves as a prototype for an eventual \b LATEX spiritual successor...]
+        \p [This document serves as a prototype for an eventual \b LATEX spiritual successor...]
+        \l bullet [Item 1;;Item 2;;Item 3] #Il grosso problema qui è l'ambiguità delle virgole. Si deve trovare a un miglior separatore che non sia una punteggiatura comune
+        \l [Item 1;;Item 2;;Item 3] #Il grosso problema qui è l'ambiguità delle virgole. Si deve trovare a un miglior separatore che non sia una punteggiatura comune
+    ]
+]

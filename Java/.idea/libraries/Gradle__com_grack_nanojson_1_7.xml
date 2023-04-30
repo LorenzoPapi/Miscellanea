@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.grack:nanojson:1.7" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.grack" artifactId="nanojson" version="1.7" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.grack/nanojson/1.7/d82b6a80991541425b73622ef319eae82cb16e1e/nanojson-1.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.grack/nanojson/1.7/408646e8218fd4841a4e25355a3c33be984f67bb/nanojson-1.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

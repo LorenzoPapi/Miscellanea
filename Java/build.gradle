@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+}
+
+project.ext.lwjglVersion = "3.3.1"
+project.ext.lwjglNatives = "natives-linux"
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://m2.dv8tion.net/releases' }
+}
+
+dependencies {
+    implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
+
+    implementation "org.lwjgl:lwjgl"
+    implementation "org.lwjgl:lwjgl-assimp"
+    implementation "org.lwjgl:lwjgl-bgfx"
+    implementation "org.lwjgl:lwjgl-glfw"
+    implementation "org.lwjgl:lwjgl-nanovg"
+    implementation "org.lwjgl:lwjgl-nuklear"
+    implementation "org.lwjgl:lwjgl-openal"
+    implementation "org.lwjgl:lwjgl-opengl"
+    implementation "org.lwjgl:lwjgl-par"
+    implementation "org.lwjgl:lwjgl-stb"
+    implementation "org.lwjgl:lwjgl-vulkan"
+    runtimeOnly "org.lwjgl:lwjgl::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-assimp::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-bgfx::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-glfw::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-nanovg::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-nuklear::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-openal::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-opengl::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-par::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-stb::$lwjglNatives"
+    //compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-windows"
+    //compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
+    //compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-osx"
+    //implementation 'com.github.GiantLuigi4:PhysicsWrapper:894cab6'
+    implementation 'net.java.dev.jna:jna:5.11.0'
+
+    //compile group: 'org.jbox2d', name: 'jbox2d', version: '2.2.1.1', ext: 'pom'
+    //compile group: 'org.jbox2d', name: 'jbox2d-serialization', version: '1.1.0'
+    //compile group: 'org.jbox2d', name: 'jbox2d-testbed', version: '2.2.1.1'
+    //compile group: 'org.jbox2d', name: 'jbox2d-testbed-jogl', version: '1.0.1'
+    //compile group: 'org.jbox2d', name: 'jbox2d-library', version: '2.2.1.1'
+
+    compile files("libs\\jnativehook-2.1.0.jar")
+    //compile files("libs\\glsl_game_engine-1.0-SNAPSHOT.jar")
+    compile files("libs\\jna-platform-5.8.0.jar")
+    implementation 'net.dv8tion:JDA:4.2.1_255'
+    compile 'com.github.sapher:youtubedl-java:1.+'
+    compile 'com.github.kokorin.jaffree:jaffree:2022.06.03'
+    implementation group: 'ws.schild', name: 'jave-all-deps', version: '3.0.1'
+    implementation 'com.github.sealedtx:java-youtube-downloader:cc7ae9c675'
+}
+

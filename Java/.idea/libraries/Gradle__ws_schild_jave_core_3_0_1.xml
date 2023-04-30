@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: ws.schild:jave-core:3.0.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="ws.schild" artifactId="jave-core" version="3.0.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ws.schild/jave-core/3.0.1/d920c3e29b5ae522d330f5fd9e6f193f9e8abbed/jave-core-3.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ws.schild/jave-core/3.0.1/43a83a8910428a2f508dd4f3e002a10d96fbd7aa/jave-core-3.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

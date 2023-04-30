@@ -1,0 +1,30 @@
+Verbi composti:
+Pot + sum:
+Possum, 	potes, 		potui, 						posse
+Trans + eo:
+Transeo,	transis,	transivi,	transitum, 		transire
+Im + mitto:
+Immitto,	immittis,	immisi,		immisum,		immittere
+
+Verbi speciali:
+Volo, 		vis, 		volui, 						velle
+Nolo, 		non vis, 	nolui, 						nolle
+Sum,		es,			fui,						esse
+
+Verbi deponenti:
+Orior, 		oriris, 	ortus sum, 					oriri
+Fruor, 		frueris, 	fructus sum,				frui
+Morior, 	moreris, 	mortus sum, 				mori
+
+
+Verbi:
+Cogito, 	cogitas, 	cogitavi, 	cogitatum, 		cogitare
+Voco, 		vocas, 		vocavi, 	vocatum, 		vocare
+Spiro, 		spiras, 	spiravi, 	spiratum, 		spirare
+Vivo, 		vivis, 		vixi, 		victum, 		vivere
+Video, 		vides, 		vidi, 		visum, 			videre
+Profligo, 	profligas, 	profligavi, profligatum, 	profligare
+Deprimo, 	deprimis, 	depressi, 	depressum, 		deprimere
+Facio, 		facis,		feci,		factum,			facere
+Contemno,	contemnis,	contempsi,	contemptum,		contemnere
+Disputo,	disputas,	disputavi,	disputatum,		disputare

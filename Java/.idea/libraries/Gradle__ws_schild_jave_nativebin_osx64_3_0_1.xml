@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: ws.schild:jave-nativebin-osx64:3.0.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="ws.schild" artifactId="jave-nativebin-osx64" version="3.0.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ws.schild/jave-nativebin-osx64/3.0.1/c4034e1698c2309db73234b53b6f354f4e854bac/jave-nativebin-osx64-3.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ws.schild/jave-nativebin-osx64/3.0.1/5a478d77a44ef3fc10145b049237b0b1cff2ea45/jave-nativebin-osx64-3.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

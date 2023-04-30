@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.lwjgl:lwjgl-nanovg:natives-linux:3.3.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.lwjgl" artifactId="lwjgl-nanovg" version="3.3.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-nanovg/3.3.1/1f2aa2c0436ff1753c541ed438b689ad1c30282f/lwjgl-nanovg-3.3.1-natives-linux.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-nanovg/3.3.1/212ef9d68c26bc25d29bb518aff8b7e4c10d5caf/lwjgl-nanovg-3.3.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
