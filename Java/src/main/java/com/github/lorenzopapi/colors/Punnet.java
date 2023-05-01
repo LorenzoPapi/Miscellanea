@@ -9,7 +9,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Punnet {
-	static List<String> operators = List.of("and", "or", "xor", "impl", "isimpl", "eq");
+	static List<String> operators = List.of("and", "or", "xor", "impl", "isimpl", "eq", "mod");
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		boolean end = false;
@@ -17,9 +17,9 @@ public class Punnet {
 		while (true) {
 			System.out.print("DEBUG? ");
 			if (sc.next().equals("true")) {
-				for (String o : new String[]{"and", "xor"})
-					for (int i = 0; i < 16; i++)
-						punnetSquare(i, o, false);
+				String mode = sc.next();
+				for (int i = 0; i < 14; i++)
+					punnetSquare(i, mode, true);
 				break;
 			} else {
 				System.out.print("Input size: ");
@@ -51,7 +51,7 @@ public class Punnet {
 		if (replace || !output.exists()) {
 			int dim = 1 << size;
 			Random rand = new Random(System.nanoTime());
-			int key = rand.nextInt();
+			int key = 412941294; //412941294;
 			BufferedImage image = new BufferedImage(dim, dim, BufferedImage.TYPE_INT_RGB);
 			System.out.printf("Starting %d x %d '%s' square %n", dim, dim, operation);
 			for (int x = 0; x < dim; x++) {
@@ -63,6 +63,7 @@ public class Punnet {
 						case "impl" -> ~x | y;
 						case "isimpl" -> x | ~y;
 						case "eq" -> ~(x ^ y);
+						case "mod" -> x*x+y*y - 1;
 						default -> 0;
 					};
 					image.setRGB(x, y, color(c, key));

@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class Main extends JComponent {
+public class MakeAWish extends JComponent {
 
 	static int frames = 0;
 	static JFrame frame = new JFrame("Esprimi un desiderio!");
@@ -70,11 +70,11 @@ public class Main extends JComponent {
 
 	public static void main2(String[] args) throws InterruptedException {
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-		frame.add(new Main());
+		frame.add(new MakeAWish());
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(ke -> {
-			synchronized (Main.class) {
+			synchronized (MakeAWish.class) {
 				if (ke.getID() == KeyEvent.KEY_PRESSED && ke.getKeyCode() == KeyEvent.VK_W) {
 					System.exit(0);
 				}
