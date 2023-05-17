@@ -7,17 +7,17 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.Random;
 import java.util.zip.DataFormatException;
-import java.util.zip.Deflater;
-import java.util.zip.Inflater;
+import java.util.zip.DeflaterOutputStream;
+import java.util.zip.InflaterInputStream;
 
 public class HideTextInImage {
 	
 	public static void main(String[] args) throws IOException, DataFormatException {
 		hideFile("Lucretius.txt", "secret_L");
 		show("secret_L", "Lucretius_dec.txt");
-		
-		//hideFile("test.bin", "secret_test");
-		//show("secret_test", "test_dec.bin");
+
+		hideFile("test.bin", "secret_test");
+		show("secret_test", "test_dec.bin");
 	}
 	
 	private static void printHexArray(byte[] bytes) {
@@ -39,6 +39,12 @@ public class HideTextInImage {
 			keys[j] = (byte) (rotated & 0xFF);
 		}
 	}
+
+	private static int encryppt(byte[] bytes, byte[] keys) {
+		Color c = new Color((bytes[0] ^ keys[0]) & 0xFF, (bytes[1] ^ keys[1]) & 0xFF, (bytes[2] ^ keys[2]) & 0xFF);
+		rotateKeys(keys);
+		return c.getRGB();
+	}
 	
 	private static void hideByteArray(byte[] inputBytes, String name) throws IOException {
 		// Initialize keys
@@ -46,23 +52,20 @@ public class HideTextInImage {
 		byte[] keys = new byte[3];
 		rand.nextBytes(keys);
 		
-		// Compress the bytes (I hope...)
-		ByteBuffer compressed = ByteBuffer.allocate(inputBytes.length);
-		Deflater compressor = new Deflater();
-		compressor.setInput(inputBytes);
-		compressor.finish();
-		compressor.deflate(compressed);
-		compressor.end();
-		
-		int len = compressed.position();
+		// Compress the bytes
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		DeflaterOutputStream dos = new DeflaterOutputStream(baos);
+		dos.write(inputBytes);
+		dos.flush();
+		dos.close();
+		int len = baos.size();
 		int size = (int) Math.ceil(Math.sqrt(len / 3. + 4));
 		byte[] padding = new byte[(size * size * 3 - 12) - len];
-		System.arraycopy(compressed.array(), 0, padding, 0, (size * size * 3 - 12) - len);
-		compressed.put(padding);
-		len = compressed.position();
+		System.arraycopy(baos.toByteArray(), 0, padding, 0, (size * size * 3 - 12) - len);
+		baos.write(padding);
+		ByteBuffer compressed = ByteBuffer.wrap(baos.toByteArray());
 		compressed.position(0);
-		printHexArray(compressed.array());
-		
+
 		// Encode corner pixels
 		BufferedImage image = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
 		int x = 0, y = 0;
@@ -73,25 +76,22 @@ public class HideTextInImage {
 		
 		// XOR keys
 		for (int i = 0; i < 3; i++) keys[i] ^= 0x55;
-		
+
 		// Encode bytes in the image
 		byte[] color = new byte[3];
-		for (int i = 0; i < len; i += 3) {
-			if (isSpecialPlace(x, y, size, size)) {
-				i -= 3;
-			} else {
+		while (compressed.hasRemaining()) {
+			if (!isSpecialPlace(x, y, size, size)) {
 				compressed.get(color);
-				image.setRGB(x, y, new Color((color[0] ^ keys[0]) & 0xFF, (color[1] ^ keys[1]) & 0xFF, (color[2] ^ keys[2]) & 0xFF).getRGB());
-				rotateKeys(keys);
+				image.setRGB(x, y, encryppt(color, keys));
 			}
 			if (++x == size) {
 				x = 0;
 				y++;
 			}
 		}
-		
+		printHexArray(compressed.array());
 		// Make sure output folder exists and print out image
-		File output = new File("hidden", "%s.png".formatted(name));
+		File output = new File("hidden", name.concat(".png"));
 		output.getParentFile().mkdirs();
 		ImageIO.write(image, "png", output);
 	}
@@ -103,7 +103,7 @@ public class HideTextInImage {
 
 	private static void show(String encName, String decName) throws IOException, DataFormatException {
 		// Read image and keys
-		BufferedImage image = ImageIO.read(new File("hidden", "%s.png".formatted(encName)));
+		BufferedImage image = ImageIO.read(new File("hidden", encName.concat(".png")));
 		int size = image.getWidth();
 		int len = image.getRGB(0, 0);
 		byte[] keys = new byte[] {
@@ -128,20 +128,15 @@ public class HideTextInImage {
 			}
 			if (!compressed.hasRemaining()) break;
 		}
-		
+		printHexArray(compressed.array());
 		// Allocate result and decompress
-		ByteBuffer result = ByteBuffer.allocate(len);
-		Inflater decompressor = new Inflater();
-		decompressor.setInput(compressed);
-		decompressor.inflate(result);
-		decompressor.end();
-		result.compact();
-		
+		ByteArrayInputStream bais = new ByteArrayInputStream(compressed.array());
+		InflaterInputStream iis = new InflaterInputStream(bais);
 		// Print or write to file
-		if (decName.isEmpty()) System.out.println(new String(result.array()));
+		if (decName.isEmpty()) System.out.println(new String(iis.readAllBytes()));
 		else {
 			BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(new File("hidden", decName)));
-			bout.write(result.array());
+			bout.write(iis.readAllBytes());
 		}
 	}
 }

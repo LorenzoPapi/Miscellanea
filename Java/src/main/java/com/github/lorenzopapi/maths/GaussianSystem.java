@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class GaussianSystem {
 	public static void main(String[] args) {
-		int exponent = 3;
+		int exponent = 5;
 		Matrix g = gaussian(exponent);
 		System.out.println(Arrays.toString(g.lastColumn()));
 	}
