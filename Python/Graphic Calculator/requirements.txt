@@ -1,0 +1,6 @@
+ffmpy==0.3.0
+matplotlib==3.5.1
+numpy==1.22.0
+opencv_python==4.5.5.62
+youtube_dl==2021.12.17
+pypotrace==0.3

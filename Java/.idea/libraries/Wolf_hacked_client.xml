@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Wolf-hacked-client">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hidden/Wolf-hacked-client.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
