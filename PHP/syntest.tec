@@ -9,6 +9,6 @@
         \p [justified] [This document serves as a prototype for an eventual \b LATEX spiritual successor...]
         \p [This document serves as a prototype for an eventual \b LATEX spiritual successor...]
         \l bullet [Item 1;;Item 2;;Item 3] #Il grosso problema qui è l'ambiguità delle virgole. Si deve trovare a un miglior separatore che non sia una punteggiatura comune
-        \l [Item 1;;Item 2;;Item 3] #Il grosso problema qui è l'ambiguità delle virgole. Si deve trovare a un miglior separatore che non sia una punteggiatura comune
+        \l [!*Item 1;;2*Item 2;;3*Item 3] #Il grosso problema qui è l'ambiguità delle virgole. Si deve trovare a un miglior separatore che non sia una punteggiatura comune
     ]
 ]

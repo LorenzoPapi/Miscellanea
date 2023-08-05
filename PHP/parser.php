@@ -152,13 +152,20 @@ class TexParser {
 					$elems = $style;
 					$style = "bullet";
 				}
-				$ret = "\\begin{itemize}\n\item " . implode("\n\item ", explode(";;", $elems)) . "\n\\end{itemize}";
+				$ret = "\\begin{itemize}";
+				foreach (explode(";;", $elems) as $e) {
+					$ret .= "\n\\item";
+					$a = array_reverse(explode("*", $e));
+					if (count($a) > 1) $ret .= "[" . $a[1] . "]";
+					$ret .= " " . $a[0];
+				}
+				$ret .= "\n\\end{itemize}";
 				break;
 			default:
 				$ret = $code . "\n";
 				break;
 		}
-		//TODO: if command needs //
+		//TODO: \\ are related only to some commands: make a condition that checks if the command needs it.
 		if ($this->tryNextByte(function($v) { return $v == 10; })) $ret . "\\\\\n";
 		return $ret;
 	}

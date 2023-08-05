@@ -253,11 +253,13 @@ Cargo.lock
 ### Graphic Calculator ###
 Python/Graphic Calculator/current/
 Python/Graphic Calculator/finished/
-Python/Graphic Calculator/*.mp4
-Python/Graphic Calculator/*.m4a
 
 ### MANIM ###
 Python/MathAnim/media/
 
 ### PUNNET ###
 Java/images/
+
+### TEX ###
+*.bat
+output.*
