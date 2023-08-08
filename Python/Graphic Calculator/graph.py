@@ -83,13 +83,16 @@ def main():
     
     args = sys.argv
 
-    print("Graphic calculator started. If you don't have youtube-dl or yt-dlp installed in your system, you need to put the video you want to convert inside the folder of the graph.py file and name it as 'video.mp4'")
+    print("Graphic calculator started")
+
+    has_ytdl = (input("Do you have youtube-dl installed [Y/N]")[0] == "Y")
     
-    if os.path.exists("video.mp4"):
-        print("Video already exists.")
+    if os.path.exists("input.mp4"):
+        print("Input video already exists.")
     else:
         if len(args) == 1:
-            print(f"No arguments given. Use as \'python3 {args[0]} URL\'")
+            print(f"No arguments given. If there is a video in the current directory, be sure its name is 'input.mp4'")
+            print("Else, if you have youtube downloader installed, use as \'python3 {args[0]} URL\'")
             sys.exit(0)
         else:
             Popen(f"youtube-dl -f bestvideo[ext=mp4]+bestaudio[ext=m4a] -o video.mp4 {args[1]}".split()).communicate()
