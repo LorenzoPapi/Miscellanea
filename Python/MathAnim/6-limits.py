@@ -71,8 +71,7 @@ class Limits(Scene):
         self.play(Indicate(limit_of_function[1]))
         self.wait()
         function_definition = Tex(r'{{$ f: A\mapsto B $}}{{$ \iff $}}{{$ \forall \ x \in A, $}}{{$\ \exists! \ y \in B $}}{{% : \ y = f(x) $}}')
-        function_steps = Tex(r'{{Una funzione $f$ da $A$ a $B$ }}{{è tale se e solo se }}{{per ogni $x$ in $A$ (dominio) }}{{esiste ed è unico $y$ in $B$ (codominio) }}{{tale che $y=f(x)$}}')
-        function_steps.scale(0.7).shift(DOWN*2)
+        function_steps = Tex(r'{{Una funzione $f$ da $A$ a $B$ }}{{è tale se e solo se }}{{per ogni $x$ in $A$ (dominio) }}{{esiste ed è unico $y$ in $B$ (codominio) }}{{tale che $y=f(x)$}}').scale(0.7).shift(DOWN*2)
         self.play(ReplacementTransform(limit_of_function[1].copy(), function_definition))
         self.wait()
         for i in range(0,5):
@@ -94,7 +93,23 @@ class Limits(Scene):
         self.play(FadeIn(def_group))
         self.wait()
 
-        
+        n_o_p = Tex(r'Intorno* di un punto').shift(2*UP)
+        n_o_p_spec = Tex(r'*Quando si parla di "intorno" senza specificarne il tipo, si sottintende che sia circolare (o completo), cioè simmetrico rispetto al punto stesso.').scale(0.4).to_corner(DR)
+        self.play(ReplacementTransform(def_group[1].copy(), n_o_p), FadeOut(def_group), FadeIn(n_o_p_spec))
+        self.play(Indicate(n_o_p))
+        self.wait()
+        n_def = Tex(r'{{$I(x_0, \epsilon)$}}{{$ := (x_0 - \epsilon, x_0 + \epsilon) $}}')
+        n_steps = Tex(r"{{L'intorno* di raggio $\epsilon > 0$ del punto $x_0$ }}{{è l'intervallo aperto a destra e a sinistra da $x_0 - \epsilon$ a $x_0 + \epsilon$}}").scale(0.7).shift(DOWN*2)
+        self.play(ReplacementTransform(n_o_p.copy(), n_def))
+        for i in range(0,2):
+            self.play(ReplacementTransform(n_def[i].copy(), n_steps[i]))
+            self.wait(0.1)
+            self.play(Indicate(n_steps[i]))
+            self.wait(0.5)
+        self.play(TransformMatchingTex(n_def, Tex(r'{{$I(x_0, \epsilon)$}}$:= {x \in \mathbb{R} \mathrm{t.c.} x_0 - \epsilon < x < x_0 + \epsilon}$')))
+        self.play(TransformMatchingTex(n_def, Tex(r'{{$I(x_0, \epsilon)$}}$:= {x \in \mathbb{R} \mathrm{t.c.} - \epsilon < x - x_0 < \epsilon}$')))
+        self.play(TransformMatchingTex(n_def, Tex(r'{{$I(x_0, \epsilon)$}}$:= {x \in \mathbb{R} \mathrm{t.c.} |x - x_0| < \epsilon}$')))
+        self.wait()
         
         pass
 
