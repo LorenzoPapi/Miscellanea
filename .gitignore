@@ -263,3 +263,6 @@ Java/images/
 ### TEX ###
 *.bat
 output.*
+
+### TOKEN ###
+token.txt
