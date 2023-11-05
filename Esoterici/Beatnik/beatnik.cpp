@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <stack>
 #include <vector>
 using namespace std;
@@ -27,6 +26,8 @@ enum codes : ll {
     BACKWARD_N_IFN_ZERO = 16,
     STOP = 17
 };
+
+// Beatnik language specifics and examples: https://esolangs.org/wiki/Beatnik
 
 int main(int argc, char * argv[]) {
     ifstream text(argc == 1 ? "program.bnk" : argv[1]);
