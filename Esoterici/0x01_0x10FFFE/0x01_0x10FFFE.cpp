@@ -76,13 +76,12 @@ void interpret() {
     switch (instructions[parse_index]) {
         case IN: {
             string input;
-            cout << "Input requested:" << endl;
             cin >> input;
             int temp_cursor = cursor;
             for (char c : input) {
                 for (size_t i = 0; i < 8; i++) {
                     tape[temp_cursor++] = c & (1 << (7 - i));
-                    if (temp_cursor >= TAPE_SIZE) temp_cursor = 0;
+                    if (temp_cursor == TAPE_SIZE) temp_cursor = 0;
                 }
             }
             break;
@@ -116,11 +115,11 @@ void interpret() {
             break;
         case RIGHT:
             cursor++;
-            if (cursor >= TAPE_SIZE) cursor = 0;
+            if (cursor == TAPE_SIZE) cursor = 0;
             break;
         case LEFT:
             cursor--;
-            if (cursor < 0) cursor = TAPE_SIZE;
+            if (cursor < 0) cursor = TAPE_SIZE - 1;
             break;
         case FLIP:
             tape.flip(cursor);
@@ -155,5 +154,5 @@ void interpret() {
         print_out_buffer();
     } else if (instructions[parse_index] == RIGHT || instructions[parse_index] == LEFT) cout << ": cursor = " << cursor << "; tape[cursor] = " << tape[cursor];
     cout << endl;
-    #endif    
+    #endif
 }
