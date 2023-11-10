@@ -9,18 +9,7 @@ using namespace std;
 
 bitset<TAPE_SIZE> tape;
 vector<int> out_buffer;
-vector<int> instructions;
-long long parse_index = 0;
 int cursor = 0;
-
-// add '-d "DEBUG"' to the compiler options for the debug file 
-
-#ifdef DEBUG
-streambuf* stream_buffer_cout = cout.rdbuf();
-streambuf* stream_buffer_debug;
-#endif
-
-void interpret();
 
 enum codes : char {
     IN = '\1',
@@ -40,17 +29,19 @@ enum codes : char {
 
 // SOH10FFFE language specifics and examples: https://esolangs.org/wiki/Soh_supplementary_private_use_area-b_u%2B10fffe
 
+void interpret(ifstream &text, codes code);
+
+// add '-d "DEBUG"' to the compiler options for the debug file
+
+#ifdef DEBUG
+streambuf* stream_buffer_cout = cout.rdbuf();
+streambuf* stream_buffer_debug;
+#endif
+
 int main(int argc, char * argv[]) {
     string name = argc == 1 ? "program.soh10fffe" : argv[1];
     ifstream text(name);
     
-    char ch;
-    if (text.is_open())
-        while (text >> skipws >> ch)
-            instructions.push_back(ch);
-    
-    text.close();
-
     #ifdef DEBUG
     ofstream debug_out(name + ".code");
     stream_buffer_debug = debug_out.rdbuf();
@@ -58,7 +49,11 @@ int main(int argc, char * argv[]) {
     cout << "BASE:\nout_buffer=[]\ncursor=0\nparse=0\n" << endl;
     #endif
 
-    while (parse_index < instructions.size()) interpret();
+    char ch;
+    if (text.is_open())
+        while (!text.eof())
+            interpret(text, (codes) text.get());
+    text.close();
 
     #ifdef DEBUG
     cout.rdbuf(stream_buffer_cout);
@@ -72,8 +67,8 @@ void print_out_buffer() {
     for (auto i : out_buffer) cout << i;
 }
 
-void interpret() {
-    switch (instructions[parse_index]) {
+void interpret(ifstream &text, codes code) {
+    switch (code) {
         case IN: {
             string input;
             cin >> input;
@@ -125,7 +120,7 @@ void interpret() {
             tape.flip(cursor);
             break;
         case SKIP_IF_ONE:
-            if (tape[cursor]) parse_index++;
+            if (tape[cursor]) text.ignore();
             break;
         case AND:
             tape[cursor] = tape[(cursor - 1) % TAPE_SIZE] & tape[(cursor - 2) % TAPE_SIZE];
@@ -140,19 +135,18 @@ void interpret() {
             tape[cursor] = tape[(cursor - 1) % TAPE_SIZE] ^ tape[(cursor - 2) % TAPE_SIZE];
             break;
         case JUMP_TO_BEGINNING:
-            parse_index = -1;
+            text.seekg(0);
             break;
         default:
             break;
     }
-    parse_index++;
 
     #ifdef DEBUG
-    cout << instructions[parse_index];
-    if (instructions[parse_index] == PUSH || instructions[parse_index] == POP || instructions[parse_index] == OUT) {
+    cout << code;
+    if (code == PUSH || code == POP || code == OUT) {
         cout << ": out_buffer = ";
         print_out_buffer();
-    } else if (instructions[parse_index] == RIGHT || instructions[parse_index] == LEFT) cout << ": cursor = " << cursor << "; tape[cursor] = " << tape[cursor];
+    } else if (code == RIGHT || code == LEFT) cout << ": cursor = " << cursor << "; tape[cursor] = " << tape[cursor];
     cout << endl;
     #endif
 }
