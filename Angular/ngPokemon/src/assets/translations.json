@@ -1,0 +1,76 @@
+{
+  "ts": [
+    {
+      "string": "Normal",
+      "t": "Normale"
+    },
+    {
+      "string": "Fire",
+      "t": "Fuoco"
+    },
+    {
+      "string": "Water",
+      "t": "Acqua"
+    },
+    {
+      "string": "Electric",
+      "t": "Elettro"
+    },
+    {
+      "string": "Grass",
+      "t": "Erba"
+    },
+    {
+      "string": "Ice",
+      "t": "Ghiaccio"
+    },
+    {
+      "string": "Fighting",
+      "t": "Lotta"
+    },
+    {
+      "string": "Poison",
+      "t": "Veleno"
+    },
+    {
+      "string": "Ground",
+      "t": "Terra"
+    },
+    {
+      "string": "Flying",
+      "t": "Volante"
+    },
+    {
+      "string": "Psychic",
+      "t": "Psico"
+    },
+    {
+      "string": "Bug",
+      "t": "Coleottero"
+    },
+    {
+      "string": "Rock",
+      "t": "Roccia"
+    },
+    {
+      "string": "Ghost",
+      "t": "Spettro"
+    },
+    {
+      "string": "Dragon",
+      "t": "Drago"
+    },
+    {
+      "string": "Dark",
+      "t": "Buio"
+    },
+    {
+      "string": "Steel",
+      "t": "Acciaio"
+    },
+    {
+      "string": "Fairy",
+      "t": "Folleto"
+    }
+  ]
+}

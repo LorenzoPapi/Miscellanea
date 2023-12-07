@@ -1,0 +1,64 @@
+<div style="text-align:center">
+  <h2>Lezione 5</h2>
+</div>
+<div>  
+  <h3>Benvenuto {{name}}</h3>
+  <h3>{{2+2}}</h3>
+  <h3>{{"Benvenuto " + name}}</h3>
+  <h3>{{name.length}}</h3>
+  <h3>{{"Benvenuto " + name.toUpperCase()}}</h3>
+  <h3>{{greetUser()}}</h3>
+  <h3>{{siteUrl}}</h3>
+</div>
+<div style="text-align:center">
+  <h2>Lezione 6</h2>
+</div>
+<div>
+  <input [id]="myId" type="text" value="Lorenzo">
+  <input [disabled]="isDisabled" id={{myId}} type="text" value="Lorenzo">
+  <input bind-disabled="isDisabled" id={{myId}} type="text" value="Lorenzo">  
+</div>
+<div style="text-align:center">
+  <h2>Lezione 7</h2>
+</div>
+<div>
+  <h3 class="text-success">LorenzoPapi</h3>
+  <h3 [class]="successClass">LorenzoPapi</h3>  
+  <h3 class="text-special" [class]="successClass">LorenzoPapi</h3>
+  <h3 [class.text-danger]="hasError">LorenzoPapi</h3>
+  <h3 [ngClass]="messageClasses">LorenzoPapi</h3>    
+</div>
+<div style="text-align:center">
+  <h2>Lezione 8</h2>
+</div>
+<div>
+  <h3 [style.color]="hasError ? 'red' : 'green' ">Legamento Stili</h3>
+  <h3 [style.color]="highlightColor">Legamento Stili 2</h3>
+  <h3 [ngStyle]="titleStyles">Legamento Stili 3</h3>
+</div>
+<div style="text-align:center">
+  <h2>Lezione 9</h2>
+</div>
+<div>
+  <button (click)="onClick($event)">Saluta</button>
+  {{greeting}}<br>
+  <button (click)="onNewClick($event)">NuovoSaluta</button>
+  {{newGreeting}}<br>
+  <button (click)="greeting='Benvenuto ' + name">NuovoSaluta</button>
+  {{greeting}}
+</div>
+<div style="text-align:center">
+  <h2>Lezione 10</h2>
+</div>
+<div>
+  <input #myInput type="text">
+  <button (click)="logMessage(myInput.value)">Log</button><br>
+  <button (click)="logMessage(myInput)">Log</button>
+</div>
+<div style="text-align:center">
+  <h2>Lezione 11</h2>
+</div>
+<div>
+  <input [(ngModel)]="newName" type="text">
+  {{newName}}
+</div>

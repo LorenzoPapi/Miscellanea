@@ -1,0 +1,8 @@
+<div *ngIf="!allPokemons">
+    attendere prego. . . .
+</div>
+
+<div *ngFor="let aPokemon of allPokemons">
+    <strong>{{ aPokemon.name }}</strong>
+    : {{ aPokemon.url }}
+</div>

@@ -1,0 +1,133 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>Informazioni del tuo Pokemon</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <section class="example-section">
+      <mat-form-field class="example-margin">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="pokemonForm.name" (ngModelChange)="checkValid()">
+      <label>
+        <mat-error *ngIf="pokemonForm.name == ''">Nome richiesto</mat-error>
+      </label>
+      </mat-form-field>
+      <mat-form-field *ngIf="myStorage.length != 0" class="example-margin">
+        <mat-label>Mossa</mat-label>
+        <mat-select [(ngModel)]="pokemonForm.move" (ngModelChange)="checkValid()">
+          <mat-option *ngFor="let number of arrayStorage(425)" [value]="myStorage.getItem(myStorage.key(number))">
+            {{ myStorage.getItem(myStorage.key(number)) }}
+          </mat-option>
+        </mat-select>
+      <label>
+        <mat-error *ngIf="pokemonForm.move == ''">Mossa richiesta.</mat-error>
+      </label>
+      </mat-form-field>
+      <mat-form-field *ngIf="myStorage.length != 0" class="example-margin">
+        <input input-autocomplete [config]=autoCompleteConfig>
+        <mat-label>Mossa</mat-label>
+        <mat-select [(ngModel)]="pokemonForm.move" (ngModelChange)="checkValid()">
+          <mat-option *ngFor="let number of arrayStorage(425)" [value]="myStorage.getItem(myStorage.key(number))">
+            {{ myStorage.getItem(myStorage.key(number)) }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-margin">
+        <mat-label>{{ atkString }}</mat-label>
+        <input matInput type="number" [(ngModel)]="pokemonForm.atk" (ngModelChange)="checkValid()" min="1"/>
+      <label>
+        <mat-error *ngIf="(pokemonForm.atk==null)">Attacco richiesto (maggiore di 0)</mat-error>
+      </label>
+      </mat-form-field>
+      <mat-checkbox class="example-margin" [(ngModel)]="pokeGen8" (ngModelChange)="checkValid()">Pokemon di 8Gen?</mat-checkbox>
+      <mat-checkbox class="example-margin" [(ngModel)]="critic">Colpo critico?</mat-checkbox>
+      <mat-checkbox class="example-margin" [(ngModel)]="burning">Sta bruciando?</mat-checkbox>
+      <br/>
+      <div class="example-margin">
+        <mat-slider [max]="100" [min]="0" [step]="1" [thumbLabel]="true" [(ngModel)]="pokemonForm.level" (ngModelChange)="checkValid()"></mat-slider>        
+      </div>
+      <label>
+        <mat-error class="errorlevel" *ngIf="pokemonForm.level == null">Livello richiesto</mat-error>
+      </label>
+      <mat-form-field class="example-margin" apperance="fill" *ngIf="this.pokeGen8 && !!trans">
+        <mat-label>1° tipo del Pokemon [gen8]</mat-label>
+        <mat-select [(ngModel)]="pokemonForm.type1" (ngModelChange)="checkValid()">
+          <mat-option *ngFor="let item of trans.ts" [value]="item.string">{{ item.t }}</mat-option>
+        </mat-select>
+        <label>
+          <mat-error *ngIf="pokemonForm.type1 == ''">Primo tipo richiesto</mat-error>
+        </label>
+      </mat-form-field>
+      <mat-form-field class="example-margin" apperance="fill" *ngIf="this.pokeGen8 && !!trans">
+        <mat-label>2° tipo del Pokemon [gen8]</mat-label>
+        <mat-select [(ngModel)]="pokemonForm.type2" (ngModelChange)="checkValid()">
+          <mat-option *ngFor="let item of trans.ts" [value]="item.string">{{ item.t }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </section>
+  </mat-card-content>
+</mat-card>
+<mat-divider></mat-divider>
+
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>Informazioni del Pokemon Avversario</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <section class="example-section">
+      <mat-form-field class="example-margin">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="pokemonForm.nameFight" (ngModelChange)="checkValid()">
+        <label>
+          <mat-error *ngIf="pokemonForm.nameFight == ''">Nome avversario richiesto</mat-error>
+        </label>
+      </mat-form-field>
+      <mat-form-field class="example-margin">
+        <mat-label>{{ defString }}</mat-label>
+        <input matInput type="number" [(ngModel)]="pokemonForm.def" (ngModelChange)="checkValid()" min="1">
+        <label>
+          <mat-error *ngIf="(pokemonForm.def==null)">Difesa richiesta (maggiore di 0)</mat-error>
+        </label>
+      </mat-form-field>
+      <mat-form-field *ngIf="!!trans" class="example-margin" apperance="fill">
+        <mat-label>1° tipo del Pokemon</mat-label>
+        <mat-select [(ngModel)]="pokemonForm.type1Fight" (ngModelChange)="checkValid()">
+          <mat-option *ngFor="let item of trans.ts" [value]="item.string">{{ item.t }}</mat-option>
+        </mat-select>
+        <label>
+          <mat-error *ngIf="pokemonForm.type1Fight == ''">Primo tipo richiesto</mat-error>
+        </label>
+      </mat-form-field>
+      <mat-form-field *ngIf="!!trans" class="example-margin" apperance="fill">
+        <mat-label>2° tipo del Pokemon</mat-label>
+        <mat-select [(ngModel)]="pokemonForm.type2Fight" (ngModelChange)="checkValid()">
+          <mat-option *ngFor="let item of trans.ts" [value]="item.string">{{ item.t }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <button [disabled]="!pokemonForm.isValid" (click)="onSubmit()" mat-raised-button color="primary">Calcola il danno</button>
+    </section>
+  </mat-card-content>
+</mat-card>
+<mat-divider></mat-divider>
+
+<mat-card class="card" *ngIf="result != 0">
+  <mat-card-header>
+    <mat-card-title>Risultato</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <section class="example-section">
+      <label>
+        Il tuo Pokemon {{ pokemonForm.name }}, arrecherà {{ result }} PS al Pokemon {{ pokemonForm.nameFight }}.
+      </label>
+    </section>
+  </mat-card-content>
+</mat-card>
+<div class="text">
+  Calcolatore fatto da Lorenzo Montano.
+</div>
+
+<!--
+<div class="text">
+  Calcolatore fatto da Lorenzo Montano.
+</div>
+-->

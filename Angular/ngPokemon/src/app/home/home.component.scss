@@ -1,0 +1,60 @@
+.example-section .mat-form-field {
+  display: inline-block;
+  margin-left: 1em;
+  height: 60px;
+  width: 40em;
+}
+
+.card {
+  margin-left: 2em;
+  margin-right: 2em;
+  max-width: fit-content;
+  max-height: fit-content;
+}
+
+mat-checkbox {
+  margin-left:1em
+}
+
+.example-margin .mat-form-field {
+  width: fit-content;
+  display: inline-block;
+  margin-right: 2em;
+}
+
+button {
+  font-size: xx-large;
+  align-self: center;
+  text-align: center;
+  width: 44.4em;
+  height: 2em;
+  margin-left: 0.4em;
+  margin-right: 0.4em;
+}
+
+mat-slider {
+  margin-left: 1em;
+  margin-top: 1em;
+  width: 300px;
+  padding: 0;
+}
+
+mat-slider::before {
+  font-size: 1.2em;
+  line-height: 1em;
+  content: "Livello:";
+  display: block;
+  margin-left: 1em;
+}
+
+.text  {
+  color: orange;
+  margin-top: 1em;
+  margin-left: 1em;
+  font-size: x-large;
+  font-weight: 900;
+}
+
+.errorlevel {
+  margin-left: 1em;
+}

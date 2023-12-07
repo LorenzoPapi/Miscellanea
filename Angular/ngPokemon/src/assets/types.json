@@ -1,0 +1,128 @@
+{
+  "types": [
+    {
+      "name": "Normal",
+      "weak": ["Rock", "Steel"],
+      "useless": ["Ghost"],
+      "strong": []
+    },
+    {
+      "name": "Fire",
+      "useless": [],
+      "weak": ["Fire", "Water", "Rock", "Dragon"],
+      "strong": ["Grass", "Ice", "Bug", "Steel"]
+    },
+    {
+      "name": "Water",
+      "useless": [],
+      "weak": ["Water", "Grass", "Dragon"],
+      "strong": ["Fire", "Ground", "Rock"]
+    },
+    {
+      "name": "Electric",
+      "useless": ["Ground"],
+      "weak": ["Electric", "Grass", "Dragon"],
+      "strong": ["Water", "Flying"]
+    },
+    {
+      "name": "Grass",
+      "useless": [],
+      "weak": [
+        "Fire",
+        "Grass",
+        "Poison",
+        "Flying",
+        "Bug",
+        "Dragon",
+        "Steel"
+      ],
+      "strong": ["Water", "Ground", "Rock"]
+    },
+    {
+      "name": "Ice",
+      "useless": [],
+      "weak": ["Fire", "Water", "Ice", "Steel"],
+      "strong": ["Grass", "Ground", "Flying", "Dragon"]
+    },
+    {
+      "name": "Fighting",
+      "useless": ["Ghost"],
+      "weak": ["Poison", "Flying", "Psychic", "Bug", "Fairy"],
+      "strong": ["Normal", "Ice", "Rock", "Dark", "Steel"]
+    },
+    {
+      "name": "Poison",
+      "useless": ["Steel"],
+      "weak": ["Poison", "Ground", "Rock", "Ghost"],
+      "strong": ["Grass", "Fairy"]
+    },
+    {
+      "name": "Ground",
+      "useless": ["Flying"],
+      "weak": ["Grass", "Bug"],
+      "strong": ["Fire", "Electric", "Poison", "Rock", "Steel"]
+    },
+    {
+      "name": "Flying",
+      "useless": [],
+      "weak": ["Electric", "Rock", "Steel"],
+      "strong": ["Grass", "Fighting", "Bug"]
+    },
+    {
+      "name": "Psychic",
+      "useless": ["Dark"],
+      "weak": ["Psychic", "Steel"],
+      "strong": ["Fighting", "Poison"]
+    },
+    {
+      "name": "Bug",
+      "useless": [],
+      "weak": [
+        "Fire",
+        "Fighting",
+        "Poison",
+        "Flying",
+        "Ghost",
+        "Steel",
+        "Fairy"
+      ],
+      "strong": ["Grass", "Psychic", "Dark"]
+    },
+    {
+      "name": "Rock",
+      "useless": [],
+      "weak": ["Fighting", "Ground", "Steel"],
+      "strong": ["Fire", "Ice", "Flying", "Bug"]
+    },
+    {
+      "name": "Ghost",
+      "useless": ["Normal"],
+      "weak": ["Dark"],
+      "strong": ["Psychic", "Ghost"]
+    },
+    {
+      "name": "Dragon",
+      "useless": ["Fairy"],
+      "weak": ["Steel"],
+      "strong": ["Dragon"]
+    },
+    {
+      "name": "Dark",
+      "useless": [],
+      "weak": ["Fighting", "Dark", "Fairy"],
+      "strong": ["Psychic", "Ghost"]
+    },
+    {
+      "name": "Steel",
+      "useless": [],
+      "weak": ["Fire", "Water", "Electric", "Steel"],
+      "strong": ["Ice", "Rock", "Fairy"]
+    },
+    {
+      "name": "Fairy",
+      "useless": [],
+      "weak": ["Fire", "Poison", "Steel"],
+      "strong": ["Fighting", "Dragon", "Dark"]
+    }
+  ]
+}

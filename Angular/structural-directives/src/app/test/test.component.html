@@ -1,0 +1,35 @@
+<div style="text-align:center">
+  <h2>Lezione 12</h2>
+</div>
+<div>
+  <h3 *ngIf="displayName; else elseBlock">LorenzoPapi</h3>
+  
+  <ng-template #elseBlock>
+    <h3>Il Nome è Nascosto</h3>
+  </ng-template>
+
+  <div *ngIf="newDisplayName; then thenBlock; else elseBlock"></div>
+
+    <ng-template #thenBlock>
+      <h3>LorenzoPapi</h3>
+    </ng-template>
+
+    <ng-template #elseBlock>
+      <h3>Il Nome è Nascosto</h3>
+    </ng-template>
+</div>
+<div style="text-align:center">
+  <h2>Lezione 13</h2>
+</div>
+<div [ngSwitch]="color">
+  <h3><div *ngSwitchCase="'red'">Hai scelto il colore rosso</div></h3>
+  <h3><div *ngSwitchCase="'blue'">Hai scelto il colore blu</div></h3>
+  <h3><div *ngSwitchCase="'green'">Hai scelto il colore verde</div></h3>
+  <h3><div *ngSwitchDefault>Scegli di nuovo</div></h3>
+</div>
+<div style="text-align:center">
+  <h2>Lezione 14</h2>
+</div>
+<div *ngFor="let color of colors; index as i, first as f, last as l; odd as o; even as v">
+  <h3>{{i}} {{o}} {{color}} {{f}} {{l}} {{v}}</h3>
+</div>
