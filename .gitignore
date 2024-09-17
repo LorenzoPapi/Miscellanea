@@ -262,6 +262,8 @@ Python/Google Images/*.txt
 ### Graphic Calculator ###
 Python/Graphic Calculator/current/
 Python/Graphic Calculator/finished/
+Python/Graphic Calculator/*.mp4
+
 
 ### MANIM ###
 Python/MathAnim/media/

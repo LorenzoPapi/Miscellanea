@@ -19,11 +19,12 @@ def download_images_for_word(word, prefix="", lim:int=1):
     post_req = s.post(form_tag['action'], data=cookie_data).content
 
     soup = BeautifulSoup(post_req, "html.parser")
-    img_soup = None
+    img_soup, img_req = None, None
     for a in soup.findAll("a"):
         if a.string == "Immagini":
             print("https://www.google.com" + a['href'])
-            img_soup = BeautifulSoup(s.get("https://www.google.com" + a['href']).content, "html.parser")
+            img_req = s.get("https://www.google.com" + a['href'], allow_redirects=True)
+            img_soup = BeautifulSoup(img_req.content, "html.parser")
             break
 
     for i, img in enumerate(img_soup.findAll("img")):
