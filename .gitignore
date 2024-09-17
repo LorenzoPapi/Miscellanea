@@ -250,6 +250,15 @@ Cargo.lock
 
 # End of https://www.toptal.com/developers/gitignore/api/python,java,c,c++,rust,intellij,gradle
 
+### Tiktok Downloader ###
+Python/Tiktok Downloader/downloaded/
+Python/Tiktok Downloader/*.txt
+
+### Google Images ###
+Python/Google Images/Audios/
+Python/Google Images/Images/
+Python/Google Images/*.txt
+
 ### Graphic Calculator ###
 Python/Graphic Calculator/current/
 Python/Graphic Calculator/finished/

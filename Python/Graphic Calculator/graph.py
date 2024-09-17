@@ -4,7 +4,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.path import Path
 from matplotlib.patches import PathPatch, Polygon
-from youtube_dl import YoutubeDL as ytdl
 from subprocess import Popen, PIPE
 
 nudge = 0.33
@@ -95,7 +94,7 @@ def main():
             print("Else, if you have youtube downloader installed, use as \'python3 {args[0]} URL\'")
             sys.exit(0)
         else:
-            Popen(f"youtube-dl -f bestvideo[ext=mp4]+bestaudio[ext=m4a] -o video.mp4 {args[1]}".split()).communicate()
+            Popen(f"yt-dlp -f bestvideo[ext=mp4]+bestaudio[ext=m4a] -o video.mp4 {args[1]}".split()).communicate()
     
     if not os.path.exists("audio.m4a"):
         print(execute_ff("-i video.mp4 -vn audio.m4a"))
