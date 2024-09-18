@@ -251,8 +251,9 @@ Cargo.lock
 # End of https://www.toptal.com/developers/gitignore/api/python,java,c,c++,rust,intellij,gradle
 
 ### Tiktok Downloader ###
-Python/Tiktok Downloader/downloaded/
-Python/Tiktok Downloader/*.txt
+Python/Tiktok Downloader/*
+!Python/Tiktok Downloader/main.py
+!Python/Tiktok Downloader/README.md
 
 ### Google Images ###
 Python/Google Images/Audios/
