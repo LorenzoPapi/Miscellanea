@@ -1,7 +1,8 @@
 from colorama import Fore, init
 from bs4 import BeautifulSoup
 from time import sleep
-import re, os, sys, requests
+from requests import Session
+import re, os, sys
 
 '''
 I just wanted to say, Snaptik.app, if you see this, please enhance your security measures.
@@ -174,7 +175,7 @@ if __name__ == "__main__":
         with open(text_file_name, "r") as tiktoks:
             links = tiktoks.read().splitlines() 
     
-    session = requests.Session()
+    session = Session()
     URL = "https://snaptik.app"
     init(autoreset=True)
 

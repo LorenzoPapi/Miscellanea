@@ -131,6 +131,11 @@ void interpret() {
             exit(0);
             return;
         default:
+            if (words[parse_index] < 5) {
+                cout << "Less than 5 points? Skill issue." << endl;
+            } else if (words[parse_index] > 23) {
+                cout << "*Beatnik applause*" << endl;
+            }
             break; //NOOP
     }
     parse_index++;

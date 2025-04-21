@@ -1,37 +1,60 @@
-from requests import Session
-from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+browser = webdriver.Firefox()
+
 from PIL import Image
 from io import BytesIO
 from yt_dlp import YoutubeDL as YTDL
 from pydub import AudioSegment
 import speech_recognition as sr
 import re, os
+from time import sleep
 
 def download_images_for_word(word, prefix="", lim:int=1):
-    if len(s.cookies) == 0:
-        soup = BeautifulSoup((s.get(f"https://www.google.com/search?q={word}").content), "html.parser")
-        form_tag = soup.find("div", {"class": "saveButtonContainer"}).find("form")
-        cookie_data = {}
-        for input_tag in form_tag.findAll("input", {"type": "hidden"}):
-            cookie_data[input_tag['name']] = input_tag['value']
-        s.post(form_tag['action'], data=cookie_data)
-        print(s.cookies)
-
-    soup = BeautifulSoup(s.get(f"https://www.google.com/search?q={word}").content, "html.parser")
-    img_soup, img_req = None, None
-    for a in soup.findAll("a"):
-        if a.string == "Immagini":
-            print("https://www.google.com" + a['href'])
-            img_req = s.get("https://www.google.com" + a['href'], allow_redirects=True)
-            img_soup = BeautifulSoup(img_req.content, "html.parser")
+    browser.get(f"https://www.google.com/search?q={word}")
+    elem = browser.find_elements(By.TAG_NAME, "button")
+    for e in elem:
+        if "Accetta" in e.accessible_name:
+            e.click()
+            break
+    elem = browser.find_elements(By.TAG_NAME, "a")
+    for e in elem:
+        if "Immagini" in e.accessible_name:
+            e.click()
             break
 
-    for i, img in enumerate(img_soup.findAll("img")):
-        src = img['src']
-        if 'https://' in src:
-            print(src)
-            Image.open(BytesIO(s.get(src).content)).save(f"Images/{prefix}-{word}-{i:02}.png")
-        if i == lim: break
+    divs = browser.find_elements(By.TAG_NAME, "div")
+    for d in divs:
+        page = d.get_attribute("data-lpage")
+        if page:
+            alt_name = d.find_element(By.TAG_NAME, "h3").accessible_name
+            d.click()
+            print(page)
+            break
+    elem = browser.find_elements(By.TAG_NAME, "div")
+    for e in elem:
+        if "Condividi" in e.accessible_name:
+            e.find_element(By.XPATH, './..').find_element(By.XPATH, './..').click()
+            break
+    # imgs = browser.find_elements(By.TAG_NAME, "img")
+    # sleep(2)
+    # for i in imgs:
+    #     not_id = not i.get_attribute("id")
+    #     alt = i.get_attribute("alt")
+    #     src = i.get_attribute("src")
+    #     if alt and not src.startswith("data"):
+    #         print(alt, alt_name)
+    #         print(src)
+
+    #     # href = i.get_attribute("href")
+    #     # print(href)
+    #     # if href and ("imgres" in href):
+    #     #     print(i.get_attribute("href"))
+    #     # Image.open(BytesIO(s.get(src).content)).save(f"Images/{prefix}-{word}-{i:02}.png")
+    sleep(1000)
+    browser.quit()
+    exit()
 
 def make_audio_to_google_image(audio_file, lang:str="it-IT"):
     total_audio = AudioSegment.from_wav(audio_file)
@@ -80,9 +103,6 @@ if __name__ == "__main__":
         os.mkdir("Images")
     except:
         pass
-    
-    s = Session()
-    s.headers = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.28 Safari/537.36'}
     
     words = open("wordlist.txt", "r").read()
     words = re.findall(r"[A-zÀ-ú]+", words)
